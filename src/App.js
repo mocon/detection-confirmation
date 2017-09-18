@@ -16,6 +16,44 @@ class App extends Component {
         };
     }
 
+    componentDidMount() {
+        window.addEventListener('keydown', this.handleKeyPress);
+    }
+
+    loadPreviousImage = () => {
+        console.log('loadPreviousImage');
+    }
+
+    loadNextImage = () => {
+        console.log('loadNextImage');
+    }
+
+    sendCorrectMessage = () => {
+        console.log('sendCorrectMessage');
+    }
+
+    sendIncorrectMessage = () => {
+        console.log('sendIncorrectMessage');
+    }
+
+    handleKeyPress = (event) => {
+        switch (event.key) {
+            case 'ArrowLeft':
+                this.loadPreviousImage();
+                break;
+            case 'ArrowRight':
+                this.loadNextImage();
+                break;
+            case 'y':
+                this.sendCorrectMessage();
+                break;
+            case 'n':
+                this.sendIncorrectMessage();
+                break;
+            default:
+        }
+    }
+
     render() {
         const { currentDetection } = this.state;
 
@@ -37,16 +75,35 @@ class App extends Component {
                             <h1 className="gds-text--header-lg -color-tx-lt-4 -block -text-center -m-v-3">{ currentDetection.detectionGuess }</h1>
                         </div>
                         <div className="gds-card__block gds-card__block--divide-top gds-flex gds-flex--justify-center">
-                            <button className="gds-button gds-button--outline -m-b-0 -m-r-2">
+                            {/* Previous button */}
+                            <button
+                                className="gds-button gds-button--outline -m-b-0 -m-r-2"
+                                onClick={ () => { this.loadPreviousImage(); } }
+                            >
                                 <div className="gds-hotkey gds-hotkey--primary -m-r-2"><i className="fa fa-long-arrow-left" /></div>Previous
                             </button>
-                            <button className="gds-button gds-button--danger -m-b-0 -m-r-2">
+
+                            {/* Incorrect button */}
+                            <button
+                                className="gds-button gds-button--danger -m-b-0 -m-r-2"
+                                onClick={ () => { this.sendIncorrectMessage(); } }
+                            >
                                 <div className="gds-hotkey gds-hotkey--white -m-r-2">N</div>Incorrect
                             </button>
-                            <button className="gds-button gds-button--success -m-b-0 -m-r-2">
+
+                            {/* Correct button */}
+                            <button
+                                className="gds-button gds-button--success -m-b-0 -m-r-2"
+                                onClick={ () => { this.sendCorrectMessage(); } }
+                            >
                                 <div className="gds-hotkey gds-hotkey--white -m-r-2">Y</div>Correct
                             </button>
-                            <button className="gds-button gds-button--outline -m-b-0">
+
+                            {/* Next button */}
+                            <button
+                                className="gds-button gds-button--outline -m-b-0"
+                                onClick={ () => { this.loadNextImage(); } }
+                            >
                                 <div className="gds-hotkey gds-hotkey--primary -m-r-2"><i className="fa fa-long-arrow-right" /></div>Next
                             </button>
                         </div>
