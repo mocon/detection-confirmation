@@ -1,16 +1,57 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import PageHeader from './components/PageHeader';
+import Layout from './components/Layout';
+import Card from './components/Card';
+
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            currentDetection: {
+                imageUrl: 'https://i.ytimg.com/vi/GKZp1jbcg_s/maxresdefault.jpg',
+                detectionGuess: 'Beach'
+            }
+        };
+    }
+
     render() {
+        const { currentDetection } = this.state;
+
         return (
             <div className="App">
-                <div className="App-header">
-                    <h2>Welcome to React</h2>
-                </div>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+                <PageHeader
+                    productName="Vertex"
+                    pageName="Detection Confirmation"
+                />
+                <Layout>
+                    <Card>
+                        <div className="Card__ImageHolder">
+                            <h1 className="gds-text--header-lg -block -text-center -m-t-1 -m-b-2">&nbsp;</h1>
+                            <img
+                                className="Card__Image"
+                                src={ currentDetection.imageUrl }
+                                alt="Processed file"
+                            />
+                            <h1 className="gds-text--header-lg -color-tx-lt-4 -block -text-center -m-v-3">{ currentDetection.detectionGuess }</h1>
+                        </div>
+                        <div className="gds-card__block gds-card__block--divide-top gds-flex gds-flex--justify-center">
+                            <button className="gds-button gds-button--outline -m-b-0 -m-r-2">
+                                <div className="gds-hotkey gds-hotkey--primary -m-r-2"><i className="fa fa-long-arrow-left" /></div>Previous
+                            </button>
+                            <button className="gds-button gds-button--danger -m-b-0 -m-r-2">
+                                <div className="gds-hotkey gds-hotkey--white -m-r-2">N</div>Incorrect
+                            </button>
+                            <button className="gds-button gds-button--success -m-b-0 -m-r-2">
+                                <div className="gds-hotkey gds-hotkey--white -m-r-2">Y</div>Correct
+                            </button>
+                            <button className="gds-button gds-button--outline -m-b-0">
+                                <div className="gds-hotkey gds-hotkey--primary -m-r-2"><i className="fa fa-long-arrow-right" /></div>Next
+                            </button>
+                        </div>
+                    </Card>
+                </Layout>
             </div>
         );
     }

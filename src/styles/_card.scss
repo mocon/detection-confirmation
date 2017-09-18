@@ -1,0 +1,14 @@
+$imagePreviewHeight: 400px;
+
+.Card__ImageHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $darkGray;
+}
+
+.Card__Image {
+    max-width: 100%;
+    max-height: $imagePreviewHeight;
+}
