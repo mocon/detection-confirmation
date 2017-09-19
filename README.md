@@ -2,6 +2,13 @@
 
 Allow users to quickly confirm GumGum Image Science detections from an intuitive UI.
 
+Keyboard Shortcut | Action
+--- | ---
+*LeftArrow* | Load previous image
+*n* | Deny the presence of the detected object
+*y* | Confirm the presence of the detected object
+*RightArrow* | Load next image
+
 ## Requirements
 
 * [Node.js](https://nodejs.org/en/)
