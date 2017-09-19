@@ -12,3 +12,19 @@ $imagePreviewHeight: 400px;
     max-width: 100%;
     max-height: $imagePreviewHeight;
 }
+
+.DetectionText {
+    color: #acacac;
+}
+
+.Confirmed--Yes {
+    color: $green;
+}
+
+.Confirmed--NotSure {
+    color: $yellow;
+}
+
+.Confirmed--No {
+    color: $red;
+}
