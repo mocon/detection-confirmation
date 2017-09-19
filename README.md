@@ -2,6 +2,11 @@
 
 Allow users to quickly confirm GumGum Image Science detections from an intuitive UI.
 
+## Requirements
+
+* [Node.js](https://nodejs.org/en/)
+* [Yarn](https://yarnpkg.com/en/)
+
 ## Installation
 
 ```
