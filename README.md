@@ -12,8 +12,8 @@ Keyboard Shortcut | Action
 
 ## Requirements
 
-* [Node.js](https://nodejs.org/en/) _(>6.10.3)_
-* [Yarn](https://yarnpkg.com/en/) _(>0.17.8)_
+* [Node.js](https://nodejs.org/en/) >6.10.3
+* [Yarn](https://yarnpkg.com/en/) >0.17.8
 
 ## Installation
 
