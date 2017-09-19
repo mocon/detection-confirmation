@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 import './App.css';
 
 import PageHeader from './components/PageHeader';
 import Layout from './components/Layout';
 import Card from './components/Card';
+
+const API_BASE_URL = 'https://mycoolapi.com/v1';
 
 class App extends Component {
     constructor() {
@@ -21,19 +24,51 @@ class App extends Component {
     }
 
     loadPreviousImage = () => {
-        console.log('loadPreviousImage');
+        Axios.get(`${API_BASE_URL}/previous-image`)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     loadNextImage = () => {
-        console.log('loadNextImage');
+        Axios.get(`${API_BASE_URL}/next-image`)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     sendCorrectMessage = () => {
-        console.log('sendCorrectMessage');
+        const imageId = 12345; // Replace this with current image ID
+
+        Axios.post(`${API_BASE_URL}/confirm/${imageId}`, {
+                confirmation: 'si'
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     sendIncorrectMessage = () => {
-        console.log('sendIncorrectMessage');
+        const imageId = 12345; // Replace this with current image ID
+
+        Axios.post(`${API_BASE_URL}/confirm/${imageId}`, {
+                confirmation: 'no'
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     handleKeyPress = (event) => {
