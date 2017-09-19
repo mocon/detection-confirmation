@@ -8,6 +8,7 @@ Keyboard Shortcut | Action
 `RightArrow` | Load next image
 `y` | Confirm the presence of the detected object
 `n` | Deny the presence of the detected object
+`c` | Can't tell if the object is there or not
 
 ## Requirements
 
